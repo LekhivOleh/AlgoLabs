@@ -7,3 +7,7 @@ lab1/.idea/discord.xml
 lab1/.idea/lab1.iml
 lab1/.idea/misc.xml
 lab1/.idea/modules.xml
+*.xml
+.idea/.name
+*.iml
+*.pyc
