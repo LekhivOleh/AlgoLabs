@@ -39,6 +39,10 @@ class TestBinaryTreeFunctions(unittest.TestCase):
 
         self.assertEqual(find_max_diameter(root), 7)
 
+    def test_null_tree(self):
+        result = find_max_diameter(BinaryTree(None))
+        self.assertEqual(result, None)
+
 
 if __name__ == 'main':
     unittest.main()
