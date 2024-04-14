@@ -13,9 +13,9 @@ def write_output(output_matrix, output_file):
     file.close()
 
 
-def get_path(previous_vertex, s):
+def get_path(previous_vertex, start ):
     path = 0
-    current_vertex = s
+    current_vertex = start
     while current_vertex is not None:
         path += 1
         current_vertex = previous_vertex[current_vertex]

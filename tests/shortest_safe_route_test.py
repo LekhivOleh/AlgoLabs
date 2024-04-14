@@ -24,6 +24,13 @@ class TestShortestSafeRoute(unittest.TestCase):
         output_file.close()
         self.assertEqual(int(output), -1)
 
+    def test_all_zeros_matrix(self):
+        main('../resources/input_all_zeros.txt', '../resources/output_all_zeros.txt')
+        with open("../resources/output_all_zeros.txt") as output_file:
+            output = output_file.read()
+        output_file.close()
+        self.assertEqual(int(output), -1)
+
 
 if __name__ == "__main__":
     unittest.main()
