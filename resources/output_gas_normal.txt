@@ -1,0 +1,1 @@
+('sh1', ['lviv', 'morshyn', 'dolyna', 'zhytomyr', 'sh2'])('sh2', ['stryi', 'lviv', 'morshyn', 'dolyna', 'zhytomyr', 'sh1'])
