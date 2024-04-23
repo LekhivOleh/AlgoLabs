@@ -1,0 +1,8 @@
+stryi lviv morshyn dolyna zhytomyr sh1 sh2
+sh1 sh2
+stryi lviv
+lviv morshyn
+morshyn dolyna
+dolyna zhytomyr
+sh2 stryi
+sh1 stryi
