@@ -22,7 +22,7 @@ class Trie:
             if char not in node.children:
                 return False
             node = node.children[char]
-        return True
+        return node.is_end_of_word
 
     def search_prefix(self, prefix):
         node = self.root
