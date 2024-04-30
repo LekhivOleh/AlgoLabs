@@ -1,7 +1,16 @@
 from collections import defaultdict
+from typing import Tuple, List, Final
+
+source: Final[str] = "SOURCE"
+sink: Final[str] = "SINK"
 
 
-def read_file(file_name):
+def read_file(file_name: str) -> Tuple[List[str], List[str], List[List[str]]]:#Input and output data types were not specified.
+    """
+
+    :param file_name:
+    :return:
+    """
     with open(f"../resources/{file_name}", "r") as file:
         lines = file.readlines()
         farms = lines[0].strip().split()
@@ -10,7 +19,7 @@ def read_file(file_name):
     return farms, stores, edges
 
 
-def create_graph(farms, stores, edges):
+def create_graph(farms, stores, edges) -> dict[str, dict[str, int]]
     graph = defaultdict(dict)
     for edge in edges:
         start, end, weight = edge
@@ -18,15 +27,15 @@ def create_graph(farms, stores, edges):
     for farm in farms:
         if farm not in graph:
             graph[farm] = {}
-        graph["SOURCE"][farm] = float('inf')
+        graph[source][farm] = float('inf')
     for store in stores:
         if store not in graph:
             graph[store] = {}
-        graph[store]["SINK"] = float('inf')
+        graph[store][sink] = float('inf')
     return dict(graph)
 
 
-def find_path(graph, start='SOURCE', end='SINK'):
+def find_path(graph, start: str = source, end: str = sink) -> List[List[str]]:
     stack = [(start, [start])]
     paths = []
     while stack:
@@ -42,7 +51,7 @@ def find_path(graph, start='SOURCE', end='SINK'):
     return paths
 
 
-def max_flow(graph):
+def max_flow(graph) -> int:
     maximum_flow = 0
     paths = find_path(graph)
     for path in paths:
@@ -66,7 +75,7 @@ def max_flow(graph):
     return maximum_flow
 
 
-def find_max_amount(file_name):
+def find_max_amount(file_name) -> int
     try:
         farms, stores, edges = read_file(file_name)
     except IndexError:
