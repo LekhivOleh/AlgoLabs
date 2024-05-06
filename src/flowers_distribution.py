@@ -5,11 +5,9 @@ source: Final[str] = "SOURCE"
 sink: Final[str] = "SINK"
 
 
-def read_file(file_name: str) -> Tuple[List[str], List[str], List[List[str]]]:#Input and output data types were not specified.
+def read_file(file_name: str) -> Tuple[List[str], List[str], List[List[str]]]:
     """
-
-    :param file_name:
-    :return:
+    Reads the file and returns the farms, stores and edges.
     """
     with open(f"../resources/{file_name}", "r") as file:
         lines = file.readlines()
@@ -19,7 +17,10 @@ def read_file(file_name: str) -> Tuple[List[str], List[str], List[List[str]]]:#I
     return farms, stores, edges
 
 
-def create_graph(farms, stores, edges) -> dict[str, dict[str, int]]
+def create_graph(farms, stores, edges) -> dict[str, dict[str, int]]:
+    """
+    Creates a graph with farms as sources, stores as sinks and edges as roads.
+    """
     graph = defaultdict(dict)
     for edge in edges:
         start, end, weight = edge
@@ -35,7 +36,10 @@ def create_graph(farms, stores, edges) -> dict[str, dict[str, int]]
     return dict(graph)
 
 
-def find_path(graph, start: str = source, end: str = sink) -> List[List[str]]:
+def find_path_using_dfs(graph, start: str = source, end: str = sink) -> List[List[str]]:
+    """
+    Finds all paths from one source to sink in the graph.
+    """
     stack = [(start, [start])]
     paths = []
     while stack:
@@ -52,6 +56,9 @@ def find_path(graph, start: str = source, end: str = sink) -> List[List[str]]:
 
 
 def max_flow(graph) -> int:
+    """
+    Finds the maximum flow in the graph for paths found by find_path and returns max car amount.
+    """
     maximum_flow = 0
     paths = find_path(graph)
     for path in paths:
@@ -75,7 +82,10 @@ def max_flow(graph) -> int:
     return maximum_flow
 
 
-def find_max_amount(file_name) -> int
+def find_max_amount(file_name) -> int:
+    """
+    Main function that reads the file, creates the graph and finds the maximum flow.
+    """
     try:
         farms, stores, edges = read_file(file_name)
     except IndexError:
