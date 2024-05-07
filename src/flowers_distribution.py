@@ -60,7 +60,7 @@ def max_flow(graph) -> int:
     Finds the maximum flow in the graph for paths found by find_path and returns max car amount.
     """
     maximum_flow = 0
-    paths = find_path(graph)
+    paths = find_path_using_dfs(graph)
     for path in paths:
         min_capacity = float('inf')
         for i in range(len(path) - 1):
