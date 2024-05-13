@@ -1,6 +1,6 @@
 def read_input(input_file):
     input_matrix = []
-    with open(input_file, 'r') as file:
+    with open(f"../resources/{input_file}", 'r') as file:
         for line in file:
             input_matrix.append(list(map(int, line.split(' '))))
     file.close()
@@ -13,7 +13,7 @@ def write_output(output_matrix, output_file):
     file.close()
 
 
-def get_path(previous_vertex, start ):
+def get_path(previous_vertex, start):
     path = 0
     current_vertex = start
     while current_vertex is not None:
@@ -22,7 +22,7 @@ def get_path(previous_vertex, start ):
     return path
 
 
-def find_the_shortest_safe_route(matrix):
+def the_shortest_safe_route(matrix):
     shortest_route = float("inf")
     for i in range(len(matrix)):
         if matrix[i][0] == 1:
@@ -55,8 +55,7 @@ def bfs(start_p, matrix):
     return -1
 
 
-def add_zeros_to_neighbours(input_file):
-    matrix = read_input(input_file)
+def add_zeros_to_neighbours(matrix):
     if not matrix:
         return -1
     new_matrix = [row[:] for row in matrix]
@@ -69,9 +68,10 @@ def add_zeros_to_neighbours(input_file):
     return new_matrix
 
 
-def main(input_file, output_file):
+def find_the_shortest_safe_route(input_file, output_file):
     try:
-        shortest_route = find_the_shortest_safe_route(add_zeros_to_neighbours(input_file))
+        matrix = read_input(input_file)
+        shortest_route = the_shortest_safe_route(add_zeros_to_neighbours(matrix))
     except TypeError:
         shortest_route = -1
-    write_output(shortest_route, output_file)
+    write_output(shortest_route, f"../resources/{output_file}")
