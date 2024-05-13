@@ -34,5 +34,6 @@ class TestBinaryTreePriorityQueue(unittest.TestCase):
 
         self.assertEqual((tree.insert(7, 16), tree.delete()), (None, (7, 16)))
 
+
 if __name__ == "__main__":
     unittest.main()

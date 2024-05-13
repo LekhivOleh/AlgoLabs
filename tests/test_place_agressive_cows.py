@@ -1,5 +1,5 @@
 import unittest
-from src.place_agressive_cows import distance_between_cows
+from src.place_agressive_cows import *
 
 
 class TestMaxDistanceBetweenCows(unittest.TestCase):
