@@ -2,7 +2,7 @@ import unittest
 from src.penguin_gas_distribution import *
 
 
-class TestShortestSafeRoute(unittest.TestCase):
+class TestFindPenguinGasDistribution(unittest.TestCase):
     def test_normal_input(self):
         check_gas_distribution_between_cities('../resources/input_gas_normal.txt', '../resources/output_gas_normal.txt')
         with open('../resources/output_gas_normal.txt', 'r', encoding='utf-8') as file:

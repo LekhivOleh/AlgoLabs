@@ -1,8 +1,8 @@
 import unittest
-from src.get_max_diameter import find_max_diameter, BinaryTree
+from src.get_max_diameter import *
 
 
-class TestBinaryTreeFunctions(unittest.TestCase):
+class TestGetMaxDiameter(unittest.TestCase):
     def test_tree_without_diameter(self):
         root = BinaryTree(1)
         root.left = BinaryTree(2)
@@ -41,7 +41,7 @@ class TestBinaryTreeFunctions(unittest.TestCase):
 
     def test_null_tree(self):
         result = find_max_diameter(BinaryTree(None))
-        self.assertEqual(result, None)
+        self.assertEqual(result, 0)
 
 
 if __name__ == 'main':

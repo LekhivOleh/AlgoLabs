@@ -1,8 +1,8 @@
 import unittest
-from src.place_agressive_cows import distance_between_cows
+from src.place_agressive_cows import *
 
 
-class TestMaxDistBetweenCows(unittest.TestCase):
+class TestMaxDistanceBetweenCows(unittest.TestCase):
     def test_regular_sorted_case(self):
         result = distance_between_cows(6, 4, [1, 8, 9, 11, 15, 20])
         self.assertEqual(result, 5)
